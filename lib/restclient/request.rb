@@ -658,7 +658,7 @@ module RestClient
       setup_credentials req
 
       net = net_http_object(uri.hostname, uri.port)
-      net.use_ssl = uri.is_a?(URI::HTTPS)
+      net.use_ssl = uri.is_a?(URI::HTTPS) unless (verify_ssl == false)
       net.ssl_version = ssl_version if ssl_version
       net.ciphers = ssl_ciphers if ssl_ciphers
 
